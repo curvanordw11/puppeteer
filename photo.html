@@ -3,19 +3,19 @@
 
 <head>
     <title>html转图片</title>
-    <link rel="icon" href="static/img/favicon.ico" type="images/x-ico"/>
+    <link rel="icon" href="static/img/favicon.ico" type="images/x-ico" />
     <!-- 引入 jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         /*定义自定义字体 */
         @font-face {
             font-family: "Flash";
             src: url(./GEETYPE-BailongGBT-Flash.ttf)
-            /* 添加其他字体格式，如 ttf、eot，根据实际情况选择 */
+                /* 添加其他字体格式，如 ttf、eot，根据实际情况选择 */
         }
 
         /* 设置背景颜色和文字样式 */
@@ -34,17 +34,16 @@
             left: 0;
             z-index: 1;
 
-            width: 1000px;
-            height: 800px;
+            width: 800px;
+            height: 600px;
 
             font-family: Flash;
             /*color: #000000;*/
-            font-size: 170px;
-            -webkit-text-fill-color: orangered;
+            font-size: 148px;
+            -webkit-text-fill-color: black;
             /*文字的填充色*/
-            -webkit-text-stroke: 1px #ffffff;
+            -webkit-text-stroke: 2px white;
             /*描边的像素，也就是粗细，这里指定是2像素的黑色边框*/
-            text-rendering: optimizeLegibility;
 
             /*font-style: italic;*/
             display: flex;
@@ -60,8 +59,8 @@
             /* 定义4列，每列占据平均宽度 */
             grid-template-rows: repeat(3, 1fr);
             /* 定义3行，每行占据平均高度 */
-            width: 1000px;
-            height: 800px;
+            width: 800px;
+            height: 600px;
         }
 
         .grid-item {
@@ -70,12 +69,12 @@
         }
 
         .red {
-            background-color: black;
+            background-color: #d6430d;
             border-radius: 0%;
         }
 
         .white {
-            background-color: black;
+            background-color: #fafafa;
             border-radius: 0%;
         }
     </style>
@@ -83,37 +82,32 @@
 
 <body>
 
-<div class="grid-container" id="myGrid">
-    <!-- 网格单元格将通过 JavaScript 动态生成 -->
-</div>
-<div id="box">
-    <div style="text-align: center;margin:0 auto;width: 93%;display: flex;align-items: center;justify-content: space-evenly;">
-        <span>刑</span><span>天</span><span>舞</span><span>干</span><span>戚</span>
+    <div class="grid-container" id="myGrid">
+        <!-- 网格单元格将通过 JavaScript 动态生成 -->
     </div>
-    <div style="text-align: center;margin:0 auto;width: 93%;display: flex;align-items: center;justify-content: space-evenly;">
-        <span>猛</span><span>志</span><span>固</span><span>常</span><span>在</span>
+    <div id="box">
+        <div style="text-align: center;width: 100%;">刑天舞干戚</div>
+        <div style="text-align: center;width: 100%">猛志固常在</div>
     </div>
-</div>
-<script>
-    function generateGrid() {
-        var gridContainer = document.getElementById("myGrid");
+    <script>
+        function generateGrid() {
+            var gridContainer = document.getElementById("myGrid");
 
-        for (var i = 0; i < 12; i++) {
-            var gridItem = document.createElement("div");
-            gridItem.classList.add("grid-item");
+            for (var i = 0; i < 12; i++) {
+                var gridItem = document.createElement("div");
+                gridItem.classList.add("grid-item");
 
-            if ((Math.floor(i / 4) % 2 === 0 && i % 2 === 0) || (Math.floor(i / 4) % 2 === 1 && i % 2 === 1)) {
-                gridItem.classList.add("red");
-            } else {
-                gridItem.classList.add("white");
+                if ((Math.floor(i / 4) % 2 === 0 && i % 2 === 0) || (Math.floor(i / 4) % 2 === 1 && i % 2 === 1)) {
+                    gridItem.classList.add("red");
+                } else {
+                    gridItem.classList.add("white");
+                }
+
+                gridContainer.appendChild(gridItem);
             }
-
-            gridContainer.appendChild(gridItem);
         }
-    }
-
-    generateGrid();
-</script>
+        generateGrid();
+    </script>
 </body>
 
 </html>
