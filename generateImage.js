@@ -15,9 +15,27 @@ async function generateImage() {
     const fileUrl = `file://${filePath}`;
     await page.goto(fileUrl, { waitUntil: 'load' }); // 使用 waitUntil: 'load' 等待页面完全加载
 
+    // 设置页面视口大小，间接调整生成图片的分辨率
+    await page.setViewport({ width: 800, height: 600 });
+
+    // 模拟高分辨率设备，增加生成图片的清晰度
+    await page.emulate({
+        viewport: {
+            width: 800,
+            height: 600,
+            deviceScaleFactor: 20
+        },
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36'
+    });
+
+
+
+    // 等待一段时间，确保页面中的元素加载完成
+    await page.waitForTimeout(2000);
+
     // 生成页面的截图
     const screenshotPath = path.join(__dirname, 'screenshot.png');
-    await page.screenshot({ path: screenshotPath });
+    await page.screenshot({ path: screenshotPath});
 
     // 关闭浏览器
     await browser.close();
