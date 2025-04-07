@@ -16,14 +16,14 @@ async function generateImage() {
     await page.goto(fileUrl, { waitUntil: 'load' }); // 使用 waitUntil: 'load' 等待页面完全加载
 
     // 设置页面视口大小，间接调整生成图片的分辨率
-    await page.setViewport({ width: 1000, height: 800 });
+    await page.setViewport({ width: 1000, height: 240 });
 
     // 模拟高分辨率设备，增加生成图片的清晰度
     await page.emulate({
         viewport: {
             width: 1000,
-            height: 800,
-            deviceScaleFactor: 10
+            height: 240,
+            deviceScaleFactor: 20
         },
         userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36'
     });
