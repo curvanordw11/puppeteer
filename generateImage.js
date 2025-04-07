@@ -34,7 +34,7 @@ async function generateImage() {
     await page.waitForTimeout(2000);
 
     // 生成页面的截图
-    const screenshotPath = path.join(__dirname, 'screenshot.png');
+    const screenshotPath = path.join(__dirname, 'showImage.png');
     await page.screenshot({ path: screenshotPath});
 
     // 关闭浏览器
