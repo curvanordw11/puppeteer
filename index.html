@@ -31,6 +31,15 @@
             background: #000;
             /*background: linear-gradient(to bottom, #FF5500 22%, #000 22%, #000 78%, #FF5500 78%);*/
             background: linear-gradient(to bottom, orangered 22%, #000 22%, #000 78%, orangered 78%);
+            position: relative;
+        }
+        .img{
+            background-image: url("./static/img/logo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
         }
     </style>
 </head>
@@ -38,6 +47,7 @@
 
 <div id="box">
     当立<span style="font-weight: 500">鸿鹄</span>之<span style="font-size: 18vw;font-weight: 500;color: red; font-family: 'MyFont2';">志</span>
+    <div class="img"></div>
 </div>
 
 
